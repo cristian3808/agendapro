@@ -71,3 +71,29 @@ li button.seleccionado {
   background: #1261f3;
   border-color: white;
 }
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.campos-reserva {
+  display: grid;
+  gap: 0.5rem;
+  width: min(100%, 24rem);
+  margin: 1.25rem 0;
+}
+
+.campos-reserva label {
+  font-weight: 600;
+}
+
+.campos-reserva input,
+.campos-reserva select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.6rem;
+  color: #0f172a;
+  background: white;
+  font: inherit;
+}
