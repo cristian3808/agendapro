@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 
 export function useBooking() {
+    const reservaConfirmada = ref(false)
     const nombreCliente = ref('')
     const telefonoCliente = ref('')
     const correoCliente = ref('')
@@ -41,6 +42,8 @@ function continuar() {
   mensaje.value =
     `Reserva de ${nombreCliente.value}: ${servicioSeleccionado.value.nombre}, ` +
     `${fechaSeleccionada.value} a las ${horaSeleccionada.value}.`
+
+  reservaConfirmada.value = true
 }
 
     return {
@@ -56,6 +59,7 @@ function continuar() {
     nombreCliente,
     telefonoCliente,
     correoCliente,
+    reservaConfirmada,
     }
 }
 

@@ -97,3 +97,29 @@ button:disabled {
   background: white;
   font: inherit;
 }
+.confirmacion {
+  width: min(100%, 34rem);
+  box-sizing: border-box;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.confirmacion h2 {
+  color: white;
+}
+
+.confirmacion dl {
+  display: grid;
+  gap: 1rem;
+}
+
+.confirmacion dt {
+  font-weight: 700;
+}
+
+.confirmacion dd {
+  margin: 0.25rem 0 0;
+}

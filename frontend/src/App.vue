@@ -13,7 +13,8 @@
   horarios,
   nombreCliente,
   telefonoCliente,
-  correoCliente
+  correoCliente,
+  reservaConfirmada,
 } = useBooking()
 
 </script>
@@ -22,7 +23,7 @@
   <main>
     <h1>AgendaPro</h1>
     <p>Reserva tu proxima cita en pocos pasos</p>
-    <section>
+    <section v-if="!reservaConfirmada">
       <h2>Servicios</h2>
 
       <ul>
@@ -42,6 +43,7 @@
           v-if="servicioSeleccionado"
           class="campos-reserva"
           @submit.prevent="continuar"
+          
         >
           <label for="fecha">Fecha</label>
           <input
@@ -78,5 +80,29 @@
         </form>
             
     </section>
+   
+      <section v-else class="confirmacion">
+  <h2>¡Cita confirmada!</h2>
+  <p>Gracias, {{ nombreCliente }}. Revisa los datos de tu cita:</p>
+
+  <dl>
+    <div>
+      <dt>Servicio</dt>
+      <dd>{{ servicioSeleccionado.nombre }}</dd>
+    </div>
+    <div>
+      <dt>Fecha</dt>
+      <dd>{{ fechaSeleccionada }}</dd>
+    </div>
+    <div>
+      <dt>Hora</dt>
+      <dd>{{ horaSeleccionada }}</dd>
+    </div>
+    <div>
+      <dt>Correo</dt>
+      <dd>{{ correoCliente }}</dd>
+    </div>
+  </dl>
+</section>
   </main>
 </template>
