@@ -46,6 +46,17 @@ function continuar() {
   reservaConfirmada.value = true
 }
 
+function nuevaReserva() {
+  mensaje.value = ''
+  reservaConfirmada.value = false
+  servicioSeleccionado.value = null
+  fechaSeleccionada.value = ''
+  horaSeleccionada.value = ''
+  nombreCliente.value = ''
+  telefonoCliente.value = ''
+  correoCliente.value = ''
+}
+
     return {
     mensaje,
     continuar,
@@ -60,6 +71,7 @@ function continuar() {
     telefonoCliente,
     correoCliente,
     reservaConfirmada,
+    nuevaReserva,
     }
 }
 

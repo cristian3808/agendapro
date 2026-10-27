@@ -15,6 +15,7 @@
   telefonoCliente,
   correoCliente,
   reservaConfirmada,
+  nuevaReserva,
 } = useBooking()
 
 </script>
@@ -103,6 +104,9 @@
       <dd>{{ correoCliente }}</dd>
     </div>
   </dl>
+  <button type="button" @click="nuevaReserva">
+      Reservar otra cita
+    </button>
 </section>
   </main>
 </template>
