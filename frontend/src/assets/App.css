@@ -1,0 +1,73 @@
+section {
+  width: min(100%, 34rem);
+  margin-top: 2rem;
+}
+
+h2 {
+  margin-bottom: 0.75rem;
+}
+
+ul {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+li button {
+  width: 100%;
+  margin-top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+li button:hover,
+li button:focus-visible {
+  background: #1261f3;
+}
+main {
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem;
+  color: white;
+  background: linear-gradient(135deg, #071426, #0d47a1 60%, #020617);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+p {
+  max-width: 28rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  background: #1261f3;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 2rem 1.25rem;
+  }
+}
+li button.seleccionado {
+  background: #1261f3;
+  border-color: white;
+}
