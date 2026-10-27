@@ -1,8 +1,17 @@
 import { ref } from 'vue'
 
 export function useBooking() {
+    const nombreCliente = ref('')
+    const telefonoCliente = ref('')
+    const correoCliente = ref('')
   const mensaje = ref('')
   const fechaSeleccionada = ref('')
+  const hoy = new Date()
+    const fechaMinima = [
+    hoy.getFullYear(),
+    String(hoy.getMonth() + 1).padStart(2, '0'),
+    String(hoy.getDate()).padStart(2, '0'),
+    ].join('-')
   const horaSeleccionada = ref('')
   const horarios = ['09:00', '09:30', '10:00', '10:30']
   const servicios = [
@@ -17,17 +26,21 @@ export function useBooking() {
     servicioSeleccionado.value = servicio
   }
 
- function continuar() {
+function continuar() {
   if (
     !servicioSeleccionado.value ||
     !fechaSeleccionada.value ||
-    !horaSeleccionada.value
+    !horaSeleccionada.value ||
+    !nombreCliente.value ||
+    !telefonoCliente.value ||
+    !correoCliente.value
   ) {
     return
   }
 
   mensaje.value =
-    `Elegiste ${servicioSeleccionado.value.nombre} para el ${fechaSeleccionada.value} a las ${horaSeleccionada.value}.`
+    `Reserva de ${nombreCliente.value}: ${servicioSeleccionado.value.nombre}, ` +
+    `${fechaSeleccionada.value} a las ${horaSeleccionada.value}.`
 }
 
     return {
@@ -36,9 +49,13 @@ export function useBooking() {
     servicios,
     servicioSeleccionado,
     seleccionarServicio,
+    fechaMinima,
     fechaSeleccionada,
     horaSeleccionada,
     horarios,
+    nombreCliente,
+    telefonoCliente,
+    correoCliente,
     }
 }
 

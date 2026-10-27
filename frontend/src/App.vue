@@ -8,8 +8,12 @@
   servicioSeleccionado,
   seleccionarServicio,
   fechaSeleccionada,
+  fechaMinima,
   horaSeleccionada,
   horarios,
+  nombreCliente,
+  telefonoCliente,
+  correoCliente
 } = useBooking()
 
 </script>
@@ -33,25 +37,46 @@
       <p v-if="servicioSeleccionado">
         Seleccionaste: {{ servicioSeleccionado.nombre }}
       </p>
-      <div class="campos-reserva" v-if="servicioSeleccionado">
-        <label for="fecha">Fecha</label>
-        <input id="fecha" type="date" v-model="fechaSeleccionada">
+   
+        <form
+          v-if="servicioSeleccionado"
+          class="campos-reserva"
+          @submit.prevent="continuar"
+        >
+          <label for="fecha">Fecha</label>
+          <input
+            id="fecha"
+            type="date"
+            v-model="fechaSeleccionada"
+            :min="fechaMinima"
+            required
+          >
 
-        <label for="hora">Hora</label>
-        <select id="hora" v-model="horaSeleccionada">
-          <option disabled value="">Selecciona una hora</option>
-          <option v-for="hora in horarios" :key="hora" :value="hora">
-            {{ hora }}
-          </option>
-        </select>
-      </div>
-      <button
-        @click="continuar"
-        :disabled="!servicioSeleccionado || !fechaSeleccionada || !horaSeleccionada"
-      >
-        Continuar
-      </button>
-    
+          <label for="hora">Hora</label>
+          <select id="hora" v-model="horaSeleccionada" required>
+            <option disabled value="">Selecciona una hora</option>
+            <option v-for="hora in horarios" :key="hora" :value="hora">
+              {{ hora }}
+            </option>
+          </select>
+
+          <label for="nombre">Nombre</label>
+          <input id="nombre" v-model="nombreCliente" type="text" autocomplete="name" required>
+
+          <label for="telefono">Teléfono</label>
+          <input id="telefono" v-model="telefonoCliente" type="tel" autocomplete="tel" required>
+
+          <label for="correo">Correo</label>
+          <input id="correo" v-model="correoCliente" type="email" autocomplete="email" required>
+
+          <button
+            type="submit"
+            :disabled="!fechaSeleccionada || !horaSeleccionada || !nombreCliente || !telefonoCliente || !correoCliente"
+          >
+            Confirmar cita
+          </button>
+        </form>
+            
     </section>
   </main>
 </template>
