@@ -1,2 +1,3 @@
-//AgendaPro 
-//Esta aplicacion sirve para optimizar el tiempo de los personas que trabajan con muchos clientes durante el dia, con esta aplicacion busco optimizar el horario de estas personas tanto cliente como a el trabajador.
+# AgendaPro
+
+AgendaPro ayuda a las barberías a organizar sus citas y permite que sus clientes reserven un horario fácilmente.
