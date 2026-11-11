@@ -1,5 +1,11 @@
 <script setup>
   import { useBooking } from './components/useBooking.js'
+  import { ref } from 'vue'
+  import AdminCitas from './components/AdminCitas.vue'
+
+ const mostrarAdmin = ref(false)
+
+
 
  const {
   mensaje,
@@ -24,7 +30,16 @@
   <main>
     <h1>AgendaPro</h1>
     <p>Reserva tu proxima cita en pocos pasos</p>
-    <section v-if="!reservaConfirmada">
+    <nav>
+      <button type="button" @click="mostrarAdmin = false">
+        Reservar cita
+      </button>
+
+      <button type="button" @click="mostrarAdmin = true">
+        Administrar citas
+      </button>
+    </nav>
+    <section v-if="!mostrarAdmin && !reservaConfirmada">
       <h2>Servicios</h2>
 
       <ul>
@@ -82,8 +97,9 @@
             
     </section>
    
-      <section v-else class="confirmacion">
+      <section v-else-if="!mostrarAdmin" class="confirmacion">
   <h2>¡Cita confirmada!</h2>
+  
   <p>Gracias, {{ nombreCliente }}. Revisa los datos de tu cita:</p>
 
   <dl>
@@ -104,9 +120,11 @@
       <dd>{{ correoCliente }}</dd>
     </div>
   </dl>
+  
   <button type="button" @click="nuevaReserva">
       Reservar otra cita
     </button>
 </section>
+<AdminCitas v-else />
   </main>
 </template>

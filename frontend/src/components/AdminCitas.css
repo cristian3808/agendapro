@@ -1,0 +1,135 @@
+section {
+  width: min(100% - 2rem, 56rem);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #1e293b;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+h2 {
+  margin: 0 0 1rem;
+  color: #0f172a;
+  font-size: 1.5rem;
+}
+
+ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+li strong {
+  color: #0f172a;
+}
+
+li span {
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+li .estado {
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  li {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.acciones button {
+  margin: 0;
+  padding: 0.55rem 0.8rem;
+  border: 0;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.confirmar {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.cancelar {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.acciones button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 650px) {
+  .acciones {
+    grid-column: 1 / -1;
+  }
+}
+
+.estadisticas {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tarjeta-estadistica {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.tarjeta-estadistica span {
+  display: block;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.tarjeta-estadistica strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: #0f172a;
+  font-size: 1.75rem;
+}
+
+@media (max-width: 800px) {
+  .estadisticas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 450px) {
+  .estadisticas {
+    grid-template-columns: 1fr;
+  }
+}

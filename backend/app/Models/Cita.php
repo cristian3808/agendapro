@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
 class Cita extends Model
@@ -14,4 +15,9 @@ class Cita extends Model
     'fecha',
     'hora',
 ];
+
+    public function servicio(): BelongsTo
+    {
+        return $this->belongsTo(Servicio::class);
+    }
 }
